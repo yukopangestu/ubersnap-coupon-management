@@ -1,0 +1,14 @@
+# Git
+.git
+.gitignore
+
+# Docker
+docker-compose.yml
+Dockerfile
+
+# Go
+bin/
+vendor/
+*.exe
+*.test
+main
