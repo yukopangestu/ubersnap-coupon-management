@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"log"
-	"net/http"
 	"os"
 
 	"github.com/joho/godotenv"
@@ -12,7 +11,6 @@ import (
 	"gorm.io/gorm"
 
 	route "github.com/username/go-webapp/configs"
-	"github.com/username/go-webapp/internal/handler"
 	"github.com/username/go-webapp/internal/model"
 )
 
@@ -57,9 +55,6 @@ func main() {
 	// 5. Setup Routes
 	// Pass Echo instance and GORM DB connection to routes
 	route.SetupRoutes(e, db)
-
-	// Wrap the existing standard handler
-	e.GET("/", echo.WrapHandler(http.HandlerFunc(handler.HelloHandler)))
 
 	// 6. Start Server
 	port := os.Getenv("PORT")
